@@ -1,0 +1,42 @@
+name: location
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  get_storage: ^2.0.3
+  provider: ^6.0.4
+  firebase_core: ^1.24.0
+  cloud_firestore: ^3.5.1
+  url_launcher: ^6.1.6
+  fluttertoast: ^8.0.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+     - assets/images/
+  fonts:
+    - family: main_font
+      fonts:
+        - asset: assets/fonts/my_font.ttf
+    - family: sign
+      fonts:
+        - asset: assets/fonts/sign.ttf
