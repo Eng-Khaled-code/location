@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:location/PL/global/global_variables/global_variables.dart';
 import 'package:location/PL/global/widgets/custom_text_field.dart';
 import 'package:location/PL/global/widgets/loading_widget.dart';
 import 'package:location/PL/global/widgets/image_widget.dart';
 import 'package:location/provider/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../home/contact_us.dart';
 class LogIn extends StatefulWidget {
 
   @override
@@ -94,7 +95,7 @@ onTap: (){},
           "للتواصل إضغط هنا",
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        onPressed:()async=> await launchUrl(Uri.parse("tel://01159245717")),
+        onPressed:()=>const ContactUs(),
 
     );
   }

@@ -19,6 +19,7 @@ class NoDataCard extends StatelessWidget {
       const Icon(Icons.assignment,size: 50),
       const SizedBox(height: 15.0),
       Text( message!)],),
-        ),);
+        ),
+        );
   }
 }

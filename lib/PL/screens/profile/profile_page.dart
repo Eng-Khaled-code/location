@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:location/PL/screens/profile/name_address_widget.dart';
 import 'package:location/PL/screens/profile/password_dialog.dart';
 import 'package:location/provider/user_provider.dart';
 import 'package:provider/provider.dart';
-
 import '../../global/themes/text_thems/text_var.dart';
 import 'phone_widget.dart';
 
@@ -30,7 +28,7 @@ class ProfilePage extends StatelessWidget {
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: <Widget>[
-                  const ImageWidget(),
+                   ImageWidget(url: userModel!.image!,isProfile: true,type:userModel!.image==""?"assets":"network" ,),
                   const SizedBox(height: 4.0),
                   userProvider.isBrandLoading ? const CupertinoActivityIndicator() : Text("${userModel!.brand}",style:const TextStyle(color: Colors.blue,fontWeight: FontWeight.bold,fontSize: 25,fontFamily: TextVar.englishFontFamily)),
                   userProvider.isUsernameLoading ? const CupertinoActivityIndicator() : Text("${userModel!.userName}"),

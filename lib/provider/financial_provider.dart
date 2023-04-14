@@ -18,6 +18,7 @@ class FinancialProvider with ChangeNotifier
       refresh(){
         notifyListeners();
       }
+
       setType(String type){
         selectedType=type;
         notifyListeners();

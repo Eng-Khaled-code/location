@@ -6,8 +6,8 @@ class DarkColors{
   static const Color background=Colors.black;
   static const Color accent=Colors.blue;
   static const Color divider=Colors.white38;
-  static const Color coloredContainer=Colors.blue;
+  static const Color coloredContainer=Colors.white10;
   static const Color cardText=Colors.white;
-  static const Color notifyNotOpened=Colors.white10;
+  static const Color notifyNotOpened=Colors.white24;
 
 }

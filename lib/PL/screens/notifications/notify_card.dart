@@ -9,6 +9,8 @@ import 'package:location/PL/screens/backups/orders/orders_page.dart';
 import 'package:location/models/notify_model.dart';
 import 'package:location/provider/notify_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../../global/widgets/user_identification.dart';
 class NotifyCard extends StatelessWidget {
   final NotifyModel? model;
 
@@ -27,51 +29,43 @@ class NotifyCard extends StatelessWidget {
 
         }else
         {
-          goTo(context: context, to: OrdersPage(backupId: model!.contentId,backUpDate: model!.backupDate,));
+          goTo(context: context, to:
+           OrdersPage(backupId: model!.contentId));
         }
 
         Provider.of<NotifyProvider>(context,listen: false).seen(model!.notifyId!);
 
       },
       child: Container(
-          padding:const EdgeInsets.all(10),
-          color:model!.status==NotifyRef.openedRef ? Colors.transparent : notOpenedColor,
+          color:model!.status==NotifyRef.openedRef ? 
+          Colors.transparent : notOpenedColor,
+          
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        contentWidget(),
-         const Divider()
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: UserIdentification(
+              name: model!.fromName!,
+              image: model!.fromImage!,
+              date: DateTime.fromMicrosecondsSinceEpoch(
+                      int.tryParse(model!.date!)!)
+                  .toString()),
+           ),
+       
+        Padding(
+          padding: const EdgeInsets.only(right: 75,bottom: 5),
+          child: Text(model!.content!,
+            maxLines: 3,
+            textAlign: TextAlign.justify,
+          ),
+        ),
+         const Divider(height: 0,thickness: 1,)
     ]
 
       ),
     ));
   }
 
-  _userImage() {
-    return   ImageWidget(url: model!.fromImage,
-        type: "network",height: AppSizes.notifyImageHeight,width:AppSizes.notifyImageWidth);
-  }
 
-  contentWidget() {
-    return Row(
-      mainAxisAlignment:
-      MainAxisAlignment.spaceBetween,
-      children: [
-        _userImage(),
-        const SizedBox(width: 10.0),
-        Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(model!.fromName!,
-                  maxLines: 1,
-                ),
-                Text(model!.content!,
-                  maxLines: 3,
-                ),
-                Text(DateTime.fromMillisecondsSinceEpoch(int.tryParse(model!.date!)!).toString().substring(0,10)
-                )
-              ],
-            )),
-      ],);
-  }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:location/PL/global/global_variables/global_variables.dart';
 import 'package:location/PL/global/themes/text_thems/text_var.dart';
 import 'package:location/PL/global/widgets/circle_icon_button.dart';
@@ -10,12 +9,14 @@ import 'package:location/PL/screens/home/search_field.dart';
 import '../backups/backups_page/backup_list.dart';
 
 class FinancialPage extends StatelessWidget {
-   const FinancialPage({Key? key}) : super(key: key);
+    FinancialPage({Key? key}) : super(key: key);
+   final _key=GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     BackupProvider backupProvider=Provider.of<BackupProvider>(context);
     return Scaffold(
+      key: _key,
       appBar:_homeAppBar() ,
     body: _body(backupProvider,context),
     floatingActionButton: _addBackUp(context)

@@ -7,21 +7,20 @@ class NotifyModel{
   String? type ;
   String? content ;
   String? contentId ;
-  String? backupDate ;
   String? fromId ;
   String? fromName;
   String? fromImage ;
   String? toId ;
   String? status;
 
-  NotifyModel({this.backupDate,this.contentId,this.notifyId, this.date, this.type, this.content, this.fromId,
+  NotifyModel({this.contentId,this.notifyId, this.date, this.type, this.content, this.fromId,
       this.fromName, this.fromImage, this.toId, this.status});
 
   factory NotifyModel.fromSnapshot(Map<String,dynamic> data){
     return NotifyModel
       (
       notifyId: data[NotifyRef.notifyId]??"",
-      date: data[NotifyRef.date]??"",
+      date: data[NotifyRef.notifyId]??"",
       type: data[NotifyRef.type]??"",
       content: data[NotifyRef.content]??"",
       fromId: data[NotifyRef.fromId]??"",
@@ -30,7 +29,6 @@ class NotifyModel{
       fromImage: data[NotifyRef.fromImage]??"",
       status: data[NotifyRef.status]??"",
       contentId: data[NotifyRef.contentId]??"",
-      backupDate: data[NotifyRef.backupDate]??""
     );
   }
 

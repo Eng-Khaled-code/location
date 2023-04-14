@@ -1,8 +1,6 @@
 import 'package:location/PL/global/firebase_var_ref/user_ref.dart';
 
-class UserModel
-{
-
+class UserModel {
   String? userId;
   String? userName;
   String? address;
@@ -14,26 +12,35 @@ class UserModel
   String? token;
   String? brand;
   String? image;
+  String? adminId;
+  UserModel(
+      {this.brand,
+      this.image,
+      this.adminId,
+      this.userId,
+      this.userName,
+      this.address,
+      this.type,
+      this.email,
+      this.password,
+      this.status,
+      this.reason,
+      this.token});
 
-
-  UserModel({this.brand,this.image,this.userId, this.userName, this.address, this.type,
-      this.email, this.password, this.status, this.reason, this.token});
-
-  factory UserModel.fromSnapshot(Map<String,dynamic> data){
-    return UserModel
-      (
-        userId: data[UserRef.userId]??"",
-        userName: data[UserRef.username]??"",
-        email: data[UserRef.email]??"",
-        password: data[UserRef.password]??"",
-        address: data[UserRef.address]??"",
-        status: data[UserRef.status]??"",
-        reason: data[UserRef.reason]??"",
-        type: data[UserRef.type]??"",
-        token: data[UserRef.token]??"",
-        brand: data[UserRef.brand]??"",
-        image: data[UserRef.image]??"",
+  factory UserModel.fromSnapshot(Map<String, dynamic> data) {
+    return UserModel(
+      userId: data[UserRef.userId] ?? "",
+      userName: data[UserRef.username] ?? "",
+      email: data[UserRef.email] ?? "",
+      password: data[UserRef.password] ?? "",
+      address: data[UserRef.address] ?? "",
+      status: data[UserRef.status] ?? "",
+      reason: data[UserRef.reason] ?? "",
+      type: data[UserRef.type] ?? "",
+      token: data[UserRef.token] ?? "",
+      brand: data[UserRef.brand] ?? "",
+      image: data[UserRef.image] ?? "",
+      adminId: data[UserRef.adminId]??""
     );
   }
-
 }

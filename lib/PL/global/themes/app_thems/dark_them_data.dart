@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:location/PL/global/global_variables/fonts_ref.dart';
 import 'package:location/PL/global/themes/app_colors/dark_colors.dart';
-import '../../global_variables/global_variables.dart';
 import '../text_thems/dark_text_themes.dart';
 
 ThemeData darkThemeData()=>ThemeData(
@@ -22,7 +21,7 @@ ThemeData darkThemeData()=>ThemeData(
 );
 
 CardTheme _cardTheme()=> CardTheme(shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(40), // if you need this
+    borderRadius: BorderRadius.circular(25), // if you need this
    /* side: BorderSide(
         color: Colors.grey.withOpacity(0.2),
         width: 3,

@@ -10,7 +10,6 @@ class FinancialServices
   Stream<QuerySnapshot<Map<String, dynamic>>> financeStream({String? userType,String? selectedOne,
     String? selectedDate,String? type}){
 
-    Stream<QuerySnapshot<Map<String, dynamic>>>? stream;
     if(selectedOne=="الكل")
     {
 

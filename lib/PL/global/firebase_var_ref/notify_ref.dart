@@ -2,7 +2,6 @@ class NotifyRef{
 
   static const String notifyCollectionRef="notifications";
   static const String notifyId="notify_id";
-  static const String date="date";
   static const String type="type";
   static const String content="content";
   static const String fromId="from_id";
@@ -11,7 +10,6 @@ class NotifyRef{
   static const String toId="to_id";
   static const String status="status";
   static const String contentId="content_id";
-  static const String backupDate="backup_date";
 
   //notification type
   static const String moneyRef="money";
