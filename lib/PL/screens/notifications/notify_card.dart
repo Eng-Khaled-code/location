@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:location/PL/global/firebase_var_ref/notify_ref.dart';
-import 'package:location/PL/global/global_variables/app_sizes.dart';
 import 'package:location/PL/global/themes/app_colors/dark_colors.dart';
 import 'package:location/PL/global/themes/app_colors/light_colors.dart';
-import 'package:location/PL/global/widgets/image_widget.dart';
 import 'package:location/PL/global/widgets/methoods.dart';
 import 'package:location/PL/screens/backups/orders/orders_page.dart';
 import 'package:location/models/notify_model.dart';
@@ -11,6 +9,7 @@ import 'package:location/provider/notify_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../global/widgets/user_identification.dart';
+// ignore: must_be_immutable
 class NotifyCard extends StatelessWidget {
   final NotifyModel? model;
 

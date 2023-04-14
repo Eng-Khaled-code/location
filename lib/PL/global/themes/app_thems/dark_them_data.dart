@@ -8,6 +8,7 @@ import '../text_thems/dark_text_themes.dart';
 ThemeData darkThemeData()=>ThemeData(
     primaryColor:DarkColors.primary ,
     brightness: Brightness.dark,
+    // ignore: deprecated_member_use
     accentColor:  DarkColors.accent,
     dividerColor: DarkColors.divider,
     textTheme: darkTextThemes(),

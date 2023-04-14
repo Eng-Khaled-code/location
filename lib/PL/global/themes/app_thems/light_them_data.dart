@@ -8,6 +8,7 @@ ThemeData lightThemeData() => ThemeData(
       primaryColor: LightColors.primary,
       appBarTheme: _appBarTheme(),
       scaffoldBackgroundColor: LightColors.background,
+      // ignore: deprecated_member_use
       accentColor: LightColors.accent,
       fontFamily: FontsRef.myFontFamilyArabRef,
       textTheme: lightTextThemes(),

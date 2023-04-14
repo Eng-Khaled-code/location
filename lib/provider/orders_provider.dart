@@ -136,7 +136,6 @@ try {
     } on FirebaseException catch (ex) {
       Fluttertoast.showToast(msg: ex.message!);
       isLoading = false;
-      print(ex.message);
       notifyListeners();
     }
   }

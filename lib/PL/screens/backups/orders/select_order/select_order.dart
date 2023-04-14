@@ -49,7 +49,9 @@ class _SelectOrderState extends State<SelectOrder> {
                           itemBuilder: (context, position) {
                             OrderModel orderModel = OrderModel.fromSnapshot(
                                 snapshot.data.docs[position].data());
-                            return OrderCard(
+                            // ignore: missing_required_param
+                            return  OrderCard(
+                              
                               model: orderModel,
                               notifyUserId: widget.notifyUserId!,
                               selectable: true,

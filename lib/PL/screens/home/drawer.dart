@@ -6,7 +6,7 @@ import 'package:location/PL/global/widgets/image_widget.dart';
 import 'package:location/PL/global/widgets/methoods.dart';
 import 'package:location/provider/user_provider.dart';
 import 'package:provider/provider.dart';
-import '../../../provider/themeProvider.dart';
+import '../../../provider/theme_provider.dart';
 import '../../global/firebase_var_ref/user_ref.dart';
 import '../supplier/supplier.dart';
 import '../profile/profile_page.dart';
@@ -29,10 +29,10 @@ class CustomDrawer extends StatelessWidget {
            () => goTo(context: context, to:const Supplier())
            ):Container()
            ,
-          const Divider(),
+          userModel!.type ==UserRef.adminRef? Container():const Divider(),
         //  drawerBodyTile(Icons.money, "المعاملات المالية", () {}),
           //const Divider(),
-          drawerBodyTile(
+         userModel!.type ==UserRef.adminRef? Container():drawerBodyTile(
               Icons.call,
               " للتواصل",
               () => showDialog(

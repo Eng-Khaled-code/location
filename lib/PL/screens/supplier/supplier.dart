@@ -14,7 +14,7 @@ class Supplier extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: _appBar(context),
-        body: UsersList(),
+        body: const UsersList(),
         floatingActionButton: _addMiniSupplier(context),
       ),
     );

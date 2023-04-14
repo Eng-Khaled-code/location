@@ -60,7 +60,7 @@ class PhoneListWidget extends StatelessWidget {
         ? Colors.black
         : Colors.white;
     return InkWell(
-      onTap: () => onPress(context, PhoneRef.number),
+      onTap: () => onPress(context,phoneModel.number!),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 5),
         padding: const EdgeInsets.all(5),

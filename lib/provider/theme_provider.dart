@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:location/PL/global/global_variables/theme_ref.dart';

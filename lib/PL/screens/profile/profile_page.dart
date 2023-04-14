@@ -51,7 +51,7 @@ class ProfilePage extends StatelessWidget {
     return AppBar(title:const Text("تحديث البيانات الشخصية" ),
       leading: CircleIconButton(onTap: ()=>Navigator.pop(context),icon: Icons.arrow_back,),
       actions: [CircleIconButton(onTap: (){
-        showDialog(context: context, builder: (context)=>PasswordDialog());
+        showDialog(context: context, builder: (context)=>const PasswordDialog());
 
       },icon: Icons.password)],
       bottom:const PreferredSize(

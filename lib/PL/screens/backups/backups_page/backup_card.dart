@@ -1,7 +1,8 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:io';
 
 import 'package:barcode_widget/barcode_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:location/PL/global/themes/app_colors/dark_colors.dart';
@@ -12,7 +13,6 @@ import 'package:location/PL/screens/backups/orders/orders_page.dart';
 import 'package:location/models/backup_model.dart';
 import 'package:location/provider/backup_provider.dart';
 import 'package:provider/provider.dart';
-import '../../../global/firebase_var_ref/backup_ref.dart';
 import '../../../global/firebase_var_ref/user_ref.dart';
 import '../../../global/global_variables/global_variables.dart';
 import '../../../global/widgets/user_identification.dart';
@@ -22,6 +22,7 @@ import 'package:printing/printing.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
+// ignore: must_be_immutable
 class BackupCard extends StatelessWidget {
   final BackupModel? model;
   BackupCard({Key? key, @required this.model}) : super(key: key);

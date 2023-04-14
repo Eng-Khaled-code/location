@@ -5,15 +5,13 @@ import 'package:location/PL/global/widgets/loading_widget.dart';
 import 'package:location/PL/global/widgets/image_widget.dart';
 import 'package:location/provider/user_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../home/contact_us.dart';
+
 class LogIn extends StatefulWidget {
-
+  const LogIn({super.key});
   @override
-  _LogInState createState() => _LogInState();
+  State <LogIn> createState() => _LogInState();
 }
-
 class _LogInState extends State<LogIn> {
   final _formKey = GlobalKey<FormState>();
   String? _txtUsername;

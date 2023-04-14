@@ -80,7 +80,7 @@ class OrdersServices {
     });
 
     batch.update(supBackupDoc, {
-      BackupRef.payedRef: FieldValue.increment(supValue!),
+      BackupRef.payedRef: FieldValue.increment(supValue),
       newStatusfield:FieldValue.increment(1),
       oldStatusfield:FieldValue.increment(-1)
     });

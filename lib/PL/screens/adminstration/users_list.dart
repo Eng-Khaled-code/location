@@ -7,7 +7,7 @@ import '../../global/global_variables/global_variables.dart';
 import '../../global/widgets/no_data_card.dart';
 
 class UsersList extends StatelessWidget {
-  UsersList({Key? key, this.userType = "no"}) : super(key: key);
+  const UsersList({Key? key, this.userType = "no"}) : super(key: key);
   final String? userType;
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,6 @@ class UsersList extends StatelessWidget {
       return FirebaseFirestore.instance
           .collection(UserRef.userCollectionRef)
           .where(UserRef.type, isEqualTo: userType)
-          .where(UserRef.adminId, isEqualTo: userModel!.userId)
           .snapshots();
     }
   }

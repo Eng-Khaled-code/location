@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -7,6 +9,7 @@ class CustomTextField extends StatefulWidget {
   final Function()? onTap;
   final String? initialValue;
   final TextInputType? textInputType;
+  // ignore: prefer_const_constructors_in_immutables
   CustomTextField(
       {super.key,
       @required this.label,

@@ -20,10 +20,10 @@ class ScreenController extends StatelessWidget {
         if (userModel!.type == "مسئول") {
           return const Administration();
         } else {
-          return HomePage();
+          return const HomePage();
         }
       case ScreenControllerRef.logInPage:
-        return LogIn();
+        return const LogIn();
       default:
         return const SplashScreen();
     }

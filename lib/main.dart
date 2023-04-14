@@ -1,18 +1,13 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:location/PL/global/global_variables/theme_ref.dart';
 import 'package:location/PL/global/themes/app_thems/dark_them_data.dart';
 import 'package:location/PL/global/themes/app_thems/light_them_data.dart';
 import 'package:location/provider/notify_provider.dart';
 import 'package:location/provider/orders_provider.dart';
-import 'package:location/provider/themeProvider.dart';
+import 'package:location/provider/theme_provider.dart';
 import 'package:location/provider/user_provider.dart';
 import 'package:provider/provider.dart';
-import 'PL/global/firebase_var_ref/notify_ref.dart';
-import 'PL/global/widgets/methoods.dart';
-import 'PL/screens/backups/orders/orders_page.dart';
 import 'PL/start_point/screen_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:location/provider/backup_provider.dart';
@@ -58,9 +53,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    // TODO: implement initState
-      //  initialize(context);
-
     super.initState();
   }
   @override

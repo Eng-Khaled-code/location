@@ -1,4 +1,4 @@
-// ignore_for_file: invalid_return_type_for_catch_error
+// ignore_for_file: invalid_return_type_for_catch_error, avoid_function_literals_in_foreach_calls
 
 import 'dart:io';
 
@@ -164,8 +164,12 @@ class UserServices {
     if (userModel!.type == UserRef.supplierRef) {
       upData = {key!: value};
     } else {
-      String keyField=(key==UserRef.image?BackupRef.providerImage:key==UserRef.brand?BackupRef.providerBrand:BackupRef.providerName);
-      upData = {keyField:value};
+      String keyField = (key == UserRef.image
+          ? BackupRef.providerImage
+          : key == UserRef.brand
+              ? BackupRef.providerBrand
+              : BackupRef.providerName);
+      upData = {keyField: value};
     }
     await firestore
         .collection(BackupRef.collectionRef)
@@ -202,7 +206,6 @@ class UserServices {
         await updateUserFieldsServices(key: UserRef.image, value: profileURL);
       });
     } on FirebaseException catch (e) {
-      print("image error " + e.message!);
       Fluttertoast.showToast(msg: "خطا اثناء رفع الصورة ${e.message!}");
     }
   }
@@ -214,6 +217,7 @@ class UserServices {
           .child("profile images")
           .child(userModel!.userId!)
           .delete();
+    // ignore: empty_catches
     } catch (ex) {}
   }
 }

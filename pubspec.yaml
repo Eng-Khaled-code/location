@@ -24,7 +24,7 @@ dependencies:
   barcode_widget: ^2.0.3
   printing: ^5.10.3
   get_storage: ^2.0.3
-  flutter_local_notifications: ^13.0.0
+  #flutter_local_notifications: ^13.0.0
   flutter_file_dialog: ^3.0.0
   firebase_messaging: ^14.4.0
   http: ^0.13.5

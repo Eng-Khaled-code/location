@@ -14,6 +14,7 @@ import '../../../../global/widgets/user_identification.dart';
 import '../add_order.dart';
 import 'order_status_dialog.dart';
 
+// ignore: must_be_immutable
 class OrderCard extends StatelessWidget {
   final OrderModel? model;
   final String? notifyUserId;
@@ -170,7 +171,7 @@ class OrderCard extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge),
         TextSpan(
           text:
-              "\nالعنوان : ${model!.address!}  |  ${selectable! ? model!.phone : ""}  |   ${model!.phone2! ?? ""}",
+              "\nالعنوان : ${model!.address!}  |  ${selectable! ? model!.phone : ""}  |   ${model!.phone2!}",
         style: textStyle()),
       ]),
     );

@@ -40,10 +40,9 @@ class SendPushNotificationServices {
           headers: headers);
 
       if (response.statusCode == 200) {
-        print("success");
       }
+    // ignore: empty_catches
     } catch (e) {
-      print(e);
     }
   }
 }
