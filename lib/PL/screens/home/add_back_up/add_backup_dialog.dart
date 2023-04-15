@@ -29,30 +29,34 @@ class _AddBackupDialogState extends State<AddBackupDialog> {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(32.0))),
           title: const Text("إضافة BackUp"),
-          content: StreamBuilder(
-              stream: backupProvider.usersStream(widget.backupType!),
-              builder: (context, snapshot) => !snapshot.hasData
-                  ? const CupertinoActivityIndicator()
-                  : snapshot.data!.size == 0
-                      ? const Text("لايوجد")
-                      : ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: snapshot.data!.size,
-                          itemBuilder: (context, position) {
-                            UserModel userModel = UserModel.fromSnapshot(
-                                snapshot.data!.docs[position].data());
-                            return DialogCard(
-                              userModel: userModel,
-                              currentUserId: currentUserId,
-                              ontap: () => setState(() {
-                                currentUserId = userModel.userId!;
-                                userImage = userModel.image!;
-                                username = userModel.userName!;
-                                brand = userModel.brand!;
-                              }),
-                            );
-                          },
-                        )),
+          content: SizedBox(
+            height: 200,
+            width: 200,
+            child: StreamBuilder(
+                stream: backupProvider.usersStream(widget.backupType!),
+                builder: (context, snapshot) => !snapshot.hasData
+                    ? const CupertinoActivityIndicator()
+                    : snapshot.data!.size == 0
+                        ? const Text("لايوجد")
+                        : ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data!.size,
+                            itemBuilder: (context, position) {
+                              UserModel userModel = UserModel.fromSnapshot(
+                                  snapshot.data!.docs[position].data());
+                              return DialogCard(
+                                userModel: userModel,
+                                currentUserId: currentUserId,
+                                ontap: () => setState(() {
+                                  currentUserId = userModel.userId!;
+                                  userImage = userModel.image!;
+                                  username = userModel.userName!;
+                                  brand = userModel.brand!;
+                                }),
+                              );
+                            },
+                          )),
+          ),
           actions: [
             TextButton(
                 onPressed: () {

@@ -27,7 +27,7 @@ class ImageWidget extends StatelessWidget {
     UserProvider userProvider= Provider.of<UserProvider>(context);
     return Center(
       child: userProvider.isImageLoading?SizedBox(width: width,height: height,child: const CupertinoActivityIndicator()): InkWell(
-          onTap: ()=>onPressPhotoButton(context, userProvider),
+          onTap: ()=>isProfile!?onPressPhotoButton(context, userProvider):(){},
           child: type == "network" ? networkImageWidget() : assetImageWidget()),
     );
   }

@@ -34,27 +34,31 @@ class _OrderStatusDialogState extends State<OrderStatusDialog> {
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(32.0))),
           title: const Text("تغيير حالة الطلب"),
-          content: SingleChildScrollView(
-              child: Form(
-                  key: formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      statusListWidget(),
-                      const SizedBox(height: 10),
-                      selectedStatus == OrderRef.canceled
-                          ? Container()
-                          : CustomTextField(
-                              initialValue: (payedValue == 0 ? "" : payedValue)
-                                  .toString(),
-                              label: "القيمة",
-                              onSave: (value) =>
-                                  payedValue = double.tryParse(value)!,
-                              icon: Icons.monetization_on_outlined,
-                              onTap: () {},
-                            ),
-                    ],
-                  ))),
+          content: SizedBox(
+            width: 200,
+            height: 150,
+            child: SingleChildScrollView(
+                child: Form(
+                    key: formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        statusListWidget(),
+                        const SizedBox(height: 10),
+                        selectedStatus == OrderRef.canceled
+                            ? Container()
+                            : CustomTextField(
+                                initialValue: (payedValue == 0 ? "" : payedValue)
+                                    .toString(),
+                                label: "القيمة",
+                                onSave: (value) =>
+                                    payedValue = double.tryParse(value)!,
+                                icon: Icons.monetization_on_outlined,
+                                onTap: () {},
+                              ),
+                      ],
+                    ))),
+          ),
           actions: [
             TextButton(
                 onPressed: () {

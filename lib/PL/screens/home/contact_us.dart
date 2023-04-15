@@ -18,27 +18,32 @@ class ContactUs extends StatelessWidget {
         child: AlertDialog(
         shape:const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(32.0))),
     title:const Text("للتواصل مع المسئول"),
-    content:StreamBuilder(
-    stream: adminPhonesStream,
-    builder:(context,snapshot)=>
-    !snapshot.hasData||snapshot.connectionState==ConnectionState.waiting?
-    const CupertinoActivityIndicator()
-        :
-    snapshot.data!.size==0?const Text("لايوجد"):
-
-    ListView.builder(
+    content:SizedBox(
+      height: 150,
+      width: 200,
+      child: StreamBuilder(
+      stream: adminPhonesStream,
+      builder:(context,snapshot)=>
+      !snapshot.hasData||snapshot.connectionState==ConnectionState.waiting?
+      const CupertinoActivityIndicator()
+          :
+      snapshot.data!.size==0?const Text("لايوجد"):
+    
+      ListView.builder(
+      itemCount: snapshot.data!.size,
       shrinkWrap: true,
-    itemCount: snapshot.data!.size,
-    itemBuilder: (context,position){
-    PhoneModel phoneModel=PhoneModel.fromSnapshot(snapshot.data!.docs[position].data());
-    return _phoneCard(phoneModel.number!);},))));
+      itemBuilder: (context,position){
+      PhoneModel phoneModel=PhoneModel.fromSnapshot(snapshot.data!.docs[position].data());
+      return _phoneCard(phoneModel.number!);},)),
+    )));
   }
 
 
   Widget _phoneCard(String number) {
    return InkWell(
-     onTap: ()async=> await launchUrl(Uri(scheme: "tel", path: "tel://$number")),
+     onTap: ()async=> await launchUrl(Uri(scheme: "tel", path: number)),
      child: SizedBox(
+   
        child: Column(
          children: [
            Text(number),

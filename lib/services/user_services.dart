@@ -98,6 +98,7 @@ class UserServices {
           ScreenControllerRef.isLoggedIn, ScreenControllerRef.homePage);
       storage.write(UserRef.userId, result.docs.first.id);
     }
+
     return returnValue;
   }
 

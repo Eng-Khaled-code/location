@@ -22,7 +22,8 @@ import 'add_back_up/add_backup_dialog.dart';
 import 'drawer.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  // ignore: prefer_const_constructors_in_immutables
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -31,7 +32,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _key = GlobalKey<ScaffoldState>();
   int currentIndex = userModel!.type == UserRef.minSupplierRef ? 1 : 0;
-  String title = "Backups الموردين";
+  String? title;
 
   Future<void> setupInteractedMessage() async {
     // Get any messages which caused the application to open from
@@ -48,14 +49,30 @@ class _HomePageState extends State<HomePage> {
     // Also handle any interaction when the app is in the background via a
     // Stream listener
     FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
+    FirebaseMessaging.onMessage.listen(showSnakbarNotification);
+  }
 
-
+  void showSnakbarNotification(RemoteMessage message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message.data[NotifyRef.content]??"اشعار جديد لك"),
+      duration:const Duration(seconds: 10),
+      action: SnackBarAction(
+          label: "فتح",
+          onPressed: () {
+            if (message.data[NotifyRef.type] == NotifyRef.orderRef) {
+              goTo(
+                  context: context,
+                  to: OrdersPage(
+                      backupId: message.data[BackupRef.backupIdRef]));
+            } else {
+              // go to financial page
+            }
+          }),
+    ));
   }
 
   void _handleMessage(RemoteMessage message) {
-
     if (message.data[NotifyRef.type] == NotifyRef.orderRef) {
-
       goTo(
           context: context,
           to: OrdersPage(backupId: message.data[BackupRef.backupIdRef]));
@@ -67,11 +84,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    // Run code required to handle interacted messages in an async function
-    // as initState() must not be async
     setupInteractedMessage();
-
+    title = userModel!.type == UserRef.minSupplierRef
+        ? "Backups المناديب"
+        : "Backups الموردين";
   }
 
   @override
@@ -107,7 +123,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   AppBar _homeAppBar() => AppBar(
-        title: Text(title,
+        title: Text(title!,
             style: const TextStyle(
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,

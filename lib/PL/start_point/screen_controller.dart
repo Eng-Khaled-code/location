@@ -18,9 +18,9 @@ class ScreenController extends StatelessWidget {
     switch (user.page) {
       case ScreenControllerRef.homePage:
         if (userModel!.type == "مسئول") {
-          return const Administration();
+          return  Administration();
         } else {
-          return const HomePage();
+          return  HomePage();
         }
       case ScreenControllerRef.logInPage:
         return const LogIn();

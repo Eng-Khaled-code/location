@@ -23,7 +23,7 @@ class PhoneListWidget extends StatelessWidget {
             text: "$name\n$number",
             title: "اتصال",
             onPress: () async =>
-                await launchUrl(Uri(scheme: "tel", path: "tel://$number"))),
+                await launchUrl(Uri(scheme: "tel", path: number))),
         barrierDismissible: true);
   }
 

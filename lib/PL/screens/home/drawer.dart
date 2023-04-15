@@ -49,7 +49,7 @@ class CustomDrawer extends StatelessWidget {
   }
 
   drawerHeader() => UserAccountsDrawerHeader(
-      currentAccountPicture: const ImageWidget(),
+      currentAccountPicture:ImageWidget(url: userModel!.image!,type:userModel!.image==""?"assets":"network" ,),
       accountEmail: Text("الإيميل : ${userModel!.email!}"),
       accountName: Text(
         "الاسم : ${userModel!.userName!}",
